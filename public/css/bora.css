@@ -1,0 +1,218 @@
+body {
+    background-color: #f5f7fa;
+    font-family: Arial, sans-serif;
+    color: #212529;
+    margin: 0;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar-bora {
+    background-color: #1f2937;
+    padding: 15px 30px;
+}
+
+.navbar-bora a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.navbar-bora a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   CONTAINER
+   ========================= */
+
+.container-bora {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card-bora {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   CABEÇALHO DAS PÁGINAS
+   ========================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    margin-bottom: 5px;
+}
+
+.page-header p,
+.form-card p {
+    color: #6b7280;
+    margin-top: 0;
+}
+
+/* =========================
+   FORMULÁRIOS
+   ========================= */
+
+.form-card {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-card h1 {
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+
+.btn-bora,
+.btn-secondary-bora,
+.btn-danger-bora {
+    display: inline-block;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: normal;
+    box-sizing: border-box;
+}
+
+.btn-bora {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-bora:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary-bora {
+    background-color: #e5e7eb;
+    color: #374151;
+    margin-left: 5px;
+}
+
+.btn-secondary-bora:hover {
+    background-color: #d1d5db;
+}
+
+.btn-danger-bora {
+    background-color: #dc2626;
+    color: white;
+    margin-left: 5px;
+}
+
+.btn-danger-bora:hover {
+    background-color: #b91c1c;
+}
+
+/* =========================
+   TABELAS
+   ========================= */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table-bora {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-bora th,
+.table-bora td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-bora th {
+    background-color: #f9fafb;
+    font-weight: bold;
+}
+
+.table-bora tr:hover {
+    background-color: #f9fafb;
+}
+
+/* =========================
+   MENSAGENS DE ERRO
+   ========================= */
+
+.error-bora {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 20px 0;
+}
+
+.error-bora ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}

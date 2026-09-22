@@ -51,7 +51,7 @@
                                     @method('DELETE')
 
                                     <button type="submit" class="btn-danger-bora">
-                                        Excluirr
+                                        Excluir
                                     </button>
                                 </form>
                             </td>

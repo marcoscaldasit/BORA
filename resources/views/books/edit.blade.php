@@ -40,12 +40,7 @@
 
                 <input type="text" id="isbn" name="isbn" value="{{ old('isbn', $book->isbn) }}">
             </div>
-            <div class="form-group">
-                <label for="synopsis">Sinopse</label>
-
-                <textarea id="synopsis" name="synopsis" rows="6"
-                    placeholder="Digite a sinopse do livro...">{{ old('synopsis', $book->synopsis) }}</textarea>
-            </div>
+            
 
             <div class="form-group">
                 <label for="category_id">Categoria</label>

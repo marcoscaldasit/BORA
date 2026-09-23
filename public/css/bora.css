@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+
 /* =========================
    NAVBAR
    ========================= */
@@ -12,18 +13,158 @@ body {
 .navbar-bora {
     background-color: #1f2937;
     padding: 15px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left {
+    gap: 24px;
 }
 
 .navbar-bora a {
     color: white;
     text-decoration: none;
-    margin-right: 20px;
     font-weight: bold;
 }
 
 .navbar-bora a:hover {
     text-decoration: underline;
 }
+
+.navbar-right {
+    margin-left: auto;
+    gap: 16px;
+}
+
+
+/* =========================
+   PERFIL
+   ========================= */
+
+.profile-menu {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.profile-icon {
+    font-size: 22px;
+}
+
+
+/* =========================
+   DROPDOWN DO PERFIL
+   ========================= */
+
+.profile-dropdown {
+    display: none;
+
+    position: absolute;
+    right: 0;
+    top: 100%;
+
+    min-width: 180px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+    padding: 8px;
+
+    z-index: 1000;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #374151;
+
+    text-align: left;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+    background-color: #f3f4f6;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   LOGOUT
+   ========================= */
+
+.profile-dropdown form {
+    margin: 0;
+}
+
+.profile-dropdown form button {
+    color: #dc2626;
+}
+
+.profile-dropdown form button:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================
+   ABRIR MENU
+   ========================= */
+
+.profile-menu:hover .profile-dropdown {
+    display: block;
+}
+
 
 /* =========================
    CONTAINER
@@ -35,6 +176,7 @@ body {
     padding: 0 20px;
 }
 
+
 /* =========================
    CARDS
    ========================= */
@@ -45,6 +187,7 @@ body {
     padding: 25px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 
 /* =========================
    CABEÇALHO DAS PÁGINAS
@@ -66,6 +209,7 @@ body {
     color: #6b7280;
     margin-top: 0;
 }
+
 
 /* =========================
    FORMULÁRIOS
@@ -105,6 +249,24 @@ select:focus {
     outline: none;
     border-color: #2563eb;
 }
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
 
 /* =========================
    BOTÕES
@@ -154,6 +316,7 @@ select:focus {
     background-color: #b91c1c;
 }
 
+
 /* =========================
    TABELAS
    ========================= */
@@ -183,6 +346,7 @@ select:focus {
     background-color: #f9fafb;
 }
 
+
 /* =========================
    MENSAGENS DE ERRO
    ========================= */
@@ -200,19 +364,118 @@ select:focus {
     padding-left: 20px;
 }
 
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 14px;
-    resize: vertical;
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard-header {
+    margin-bottom: 30px;
 }
 
-textarea:focus {
-    outline: none;
-    border-color: #2563eb;
+.dashboard-header h1 {
+    margin: 0 0 8px 0;
+}
+
+.dashboard-header p {
+    color: #6b7280;
+    margin: 0;
+}
+
+
+/* =========================
+   SEÇÃO DO DASHBOARD
+   ========================= */
+
+.dashboard-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+/* =========================
+   LISTA DE LIVROS
+   ========================= */
+
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.book-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 18px;
+
+    transition: background-color 0.2s ease;
+}
+
+.book-item:hover {
+    background-color: #f9fafb;
+}
+
+.book-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+.book-info p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* =========================
+   DETALHES DO LIVRO
+   ========================= */
+
+.book-details {
+    margin-bottom: 25px;
+}
+
+.book-details p {
+    margin: 0 0 12px 0;
+}
+
+.book-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.book-status.available {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.book-status.unavailable {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.book-actions {
+    margin-top: 25px;
+}
+
+/* =========================
+   HISTÓRICO DO DASHBOARD
+   ========================= */
+
+.dashboard-history {
+    margin-top: 25px;
 }

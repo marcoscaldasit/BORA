@@ -7,22 +7,42 @@
     <div class="card-bora">
 
         <div class="page-header">
+
             <div>
                 <h1>{{ $book->title }}</h1>
-                <p>Detalhes do livro</p>
+
+                <p>
+                    {{ $book->author }}
+                </p>
             </div>
 
-            <a href="/books/{{ $book->id }}/edit" class="btn-secondary-bora">
-                Editar
-            </a>
+            <div>
+
+                @if (auth()->check() && auth()->user()->role === 'admin')
+
+                    <a href="/books/{{ $book->id }}/edit" class="btn-secondary-bora">
+                        Editar
+                    </a>
+
+                    <form method="POST" action="/books/{{ $book->id }}" style="display: inline;">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn-danger-bora">
+                            Excluir
+                        </button>
+
+                    </form>
+
+                @endif
+
+            </div>
+
         </div>
 
-        <div class="book-details">
 
-            <p>
-                <strong>Autor:</strong>
-                {{ $book->author }}
-            </p>
+        <div class="book-details">
 
             <p>
                 <strong>Categoria:</strong>
@@ -35,23 +55,60 @@
             </p>
 
             <p>
-                <strong>Status:</strong>
-                Disponível
+                <strong>Sinopse:</strong>
             </p>
 
-            <div class="form-group">
-                <strong>Sinopse:</strong>
+            <p>
+                {{ $book->synopsis ?? 'Nenhuma sinopse cadastrada.' }}
+            </p>
 
-                <p>
-                    {{ $book->synopsis ?? 'Nenhuma sinopse cadastrada.' }}
-                </p>
-            </div>
+            <p>
+                <strong>Status:</strong>
+
+                @if ($isBorrowed)
+
+                    <span class="book-status unavailable">
+                        Indisponível
+                    </span>
+
+                @else
+
+                    <span class="book-status available">
+                        Disponível
+                    </span>
+
+                @endif
+
+            </p>
 
         </div>
 
-        <a href="/books" class="btn-secondary-bora">
-            Voltar
-        </a>
+
+        <div class="book-actions">
+
+            @if ($isBorrowed)
+
+                <button type="button" class="btn-secondary-bora" disabled>
+
+                    Livro indisponível para empréstimo
+
+                </button>
+
+            @else
+
+                <form method="POST" action="/books/{{ $book->id }}/loan" style="display: inline;">
+
+                    @csrf
+
+                    <button type="submit" class="btn-bora">
+                        Solicitar empréstimo
+                    </button>
+
+                </form>
+
+            @endif
+
+        </div>
 
     </div>
 

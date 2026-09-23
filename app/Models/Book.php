@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
@@ -18,5 +19,9 @@ class Book extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function loans(): HasMany
+    {
+        return $this->hasMany(Loan::class);
     }
 }

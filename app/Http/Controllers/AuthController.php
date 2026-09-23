@@ -13,6 +13,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+
     public function register(Request $request)
     {
         $request->validate([
@@ -25,16 +26,29 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user',
         ]);
 
+        auth()->login($user);
 
-        return redirect('/login');
+        $request->session()->regenerate();
+
+        if ($request->session()->has('pending_loan_book_id')) {
+
+            $bookId = $request->session()->pull('pending_loan_book_id');
+
+            return redirect()->route('loans.confirm', $bookId);
+        }
+
+        return redirect('/books');
     }
+
 
     public function showLogin()
     {
         return view('auth.login');
     }
+
 
     public function login(Request $request)
     {
@@ -43,19 +57,33 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt($credentials)) {
-            $request->session()->regenerate();
+        if (!auth()->attempt($credentials)) {
 
-            return redirect('/books');
+            return back()->withErrors([
+                'email' => 'E-mail ou senha inválidos.',
+            ]);
         }
 
-        return back()->withErrors([
-            'email' => 'E-mail ou senha inválidos.',
-        ]);
+        $request->session()->regenerate();
+
+        if ($request->session()->has('pending_loan_book_id')) {
+
+            $bookId = $request->session()->pull('pending_loan_book_id');
+
+            return redirect()->route('loans.confirm', $bookId);
+        }
+
+        return redirect('/books');
     }
 
-    public function logout()
+
+    public function logout(Request $request)
     {
-        // encerra a sessão
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

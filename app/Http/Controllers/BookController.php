@@ -40,11 +40,15 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = Book::with('category')->get();
+        $books = Book::with('category')
+            ->with([
+                'loans' => function ($query) {
+                    $query->whereNull('return_at');
+                }
+            ])
+            ->get();
 
-        return view('books.index', [
-            'books' => $books
-        ]);
+        return view('books.index', compact('books'));
     }
 
     public function edit(Book $book)
@@ -81,14 +85,16 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        
+
         return redirect('books');
     }
 
     public function show(Book $book)
-{
-    return view('books.show', [
-        'book' => $book
-    ]);
-}
+    {
+        $isBorrowed = $book->loans()
+            ->whereNull('return_at')
+            ->exists();
+
+        return view('books.show', compact('book', 'isBorrowed'));
+    }
 }

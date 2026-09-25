@@ -1,3 +1,12 @@
+/* =========================================================
+   BORA - ESTILOS GERAIS
+   ========================================================= */
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 body {
     background-color: #f5f7fa;
     font-family: Arial, sans-serif;
@@ -6,9 +15,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-   ========================= */
+   ========================================================= */
 
 .navbar-bora {
     background-color: #1f2937;
@@ -29,6 +38,11 @@ body {
     gap: 24px;
 }
 
+.navbar-right {
+    margin-left: auto;
+    gap: 16px;
+}
+
 .navbar-bora a {
     color: white;
     text-decoration: none;
@@ -39,15 +53,10 @@ body {
     text-decoration: underline;
 }
 
-.navbar-right {
-    margin-left: auto;
-    gap: 16px;
-}
 
-
-/* =========================
+/* =========================================================
    PERFIL
-   ========================= */
+   ========================================================= */
 
 .profile-menu {
     position: relative;
@@ -62,7 +71,6 @@ body {
     border-radius: 50%;
 
     background: transparent;
-
     color: white;
 
     cursor: pointer;
@@ -70,18 +78,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.profile-dropdown-user {
-    padding: 12px 16px;
-    font-weight: 600;
-    color: #333;
-}
-
-.profile-dropdown-divider {
-    height: 1px;
-    background-color: #e5e5e5;
-    margin: 4px 0;
 }
 
 .profile-button:hover {
@@ -93,9 +89,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    DROPDOWN DO PERFIL
-   ========================= */
+   ========================================================= */
 
 .profile-dropdown {
     display: none;
@@ -117,6 +113,26 @@ body {
     z-index: 1000;
 }
 
+.profile-menu:hover .profile-dropdown {
+    display: block;
+}
+
+.profile-dropdown-user {
+    padding: 12px 16px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+.profile-dropdown-divider {
+    height: 1px;
+
+    background-color: #e5e5e5;
+
+    margin: 4px 0;
+}
+
 .profile-dropdown a,
 .profile-dropdown button {
     display: block;
@@ -133,7 +149,6 @@ body {
     color: #374151;
 
     text-align: left;
-
     text-decoration: none;
 
     cursor: pointer;
@@ -151,9 +166,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    LOGOUT
-   ========================= */
+   ========================================================= */
 
 .profile-dropdown form {
     margin: 0;
@@ -169,46 +184,45 @@ body {
 }
 
 
-/* =========================
-   ABRIR MENU
-   ========================= */
-
-.profile-menu:hover .profile-dropdown {
-    display: block;
-}
-
-
-/* =========================
+/* =========================================================
    CONTAINER
-   ========================= */
+   ========================================================= */
 
 .container-bora {
     max-width: 1100px;
+
     margin: 40px auto;
+
     padding: 0 20px;
 }
 
 
-/* =========================
+/* =========================================================
    CARDS
-   ========================= */
+   ========================================================= */
 
 .card-bora {
     background-color: white;
+
     border-radius: 10px;
+
     padding: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 
-/* =========================
+/* =========================================================
    CABEÇALHO DAS PÁGINAS
-   ========================= */
+   ========================================================= */
 
 .page-header {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     margin-bottom: 30px;
 }
 
@@ -219,16 +233,18 @@ body {
 .page-header p,
 .form-card p {
     color: #6b7280;
+
     margin-top: 0;
 }
 
 
-/* =========================
+/* =========================================================
    FORMULÁRIOS
-   ========================= */
+   ========================================================= */
 
 .form-card {
     max-width: 650px;
+
     margin: 0 auto;
 }
 
@@ -245,62 +261,64 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
     width: 100%;
+
     padding: 10px;
     margin-top: 5px;
+
     border: 1px solid #d1d5db;
     border-radius: 6px;
+
     box-sizing: border-box;
+
     font-family: inherit;
     font-size: 14px;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #2563eb;
 }
 
 textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 14px;
     resize: vertical;
 }
 
+input:focus,
+select:focus,
 textarea:focus {
     outline: none;
+
     border-color: #2563eb;
 }
 
 
-/* =========================
+/* =========================================================
    BOTÕES
-   ========================= */
+   ========================================================= */
 
 .btn-bora,
 .btn-secondary-bora,
 .btn-danger-bora {
     display: inline-block;
+
     padding: 10px 16px;
+
     border: none;
     border-radius: 6px;
+
     text-decoration: none;
+
     cursor: pointer;
+
     font-size: 14px;
     font-family: inherit;
+
     line-height: normal;
+
     box-sizing: border-box;
 }
 
 .btn-bora {
     background-color: #2563eb;
+
     color: white;
 }
 
@@ -310,7 +328,9 @@ textarea:focus {
 
 .btn-secondary-bora {
     background-color: #e5e7eb;
+
     color: #374151;
+
     margin-left: 5px;
 }
 
@@ -320,7 +340,9 @@ textarea:focus {
 
 .btn-danger-bora {
     background-color: #dc2626;
+
     color: white;
+
     margin-left: 5px;
 }
 
@@ -329,9 +351,9 @@ textarea:focus {
 }
 
 
-/* =========================
+/* =========================================================
    TABELAS
-   ========================= */
+   ========================================================= */
 
 .table-container {
     overflow-x: auto;
@@ -339,18 +361,22 @@ textarea:focus {
 
 .table-bora {
     width: 100%;
+
     border-collapse: collapse;
 }
 
 .table-bora th,
 .table-bora td {
     padding: 14px;
+
     text-align: left;
+
     border-bottom: 1px solid #e5e7eb;
 }
 
 .table-bora th {
     background-color: #f9fafb;
+
     font-weight: bold;
 }
 
@@ -359,27 +385,32 @@ textarea:focus {
 }
 
 
-/* =========================
+/* =========================================================
    MENSAGENS DE ERRO
-   ========================= */
+   ========================================================= */
 
 .error-bora {
     background-color: #fee2e2;
+
     border: 1px solid #fecaca;
+
     border-radius: 6px;
+
     padding: 12px 18px;
+
     margin: 20px 0;
 }
 
 .error-bora ul {
     margin: 0;
+
     padding-left: 20px;
 }
 
 
-/* =========================
-   DASHBOARD
-   ========================= */
+/* =========================================================
+   DASHBOARD - GERAL
+   ========================================================= */
 
 .dashboard-header {
     margin-bottom: 30px;
@@ -391,20 +422,19 @@ textarea:focus {
 
 .dashboard-header p {
     color: #6b7280;
+
     margin: 0;
 }
 
-
-/* =========================
-   SEÇÃO DO DASHBOARD
-   ========================= */
-
 .dashboard-section {
     background-color: white;
+
     border-radius: 10px;
+
     padding: 25px;
 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .section-header {
@@ -413,26 +443,193 @@ textarea:focus {
 
 .section-header h2 {
     margin: 0;
+
     font-size: 20px;
 }
 
 
-/* =========================
+/* =========================================================
+   DASHBOARD - HISTÓRICO
+   ========================================================= */
+
+.dashboard-history {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   DASHBOARD ADMINISTRATIVO - INDICADORES
+   ========================================================= */
+
+.admin-stats {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.admin-stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin-stat-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background-color: #f3f4f6;
+
+    font-size: 20px;
+}
+
+.admin-stat-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.admin-stat-value {
+    font-size: 24px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: #222;
+}
+
+.admin-stat-label {
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   DASHBOARD ADMINISTRATIVO - AÇÕES
+   ========================================================= */
+
+.admin-action-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    padding: 20px 22px;
+
+    margin-bottom: 12px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.admin-action-card .btn-bora {
+    width: 180px;
+    text-align: center;
+}
+
+.admin-action-card:hover {
+    border-color: #d1d5db;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.admin-action-info {
+    flex: 1;
+}
+
+.admin-action-info h3 {
+    margin: 0 0 6px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #222;
+}
+
+.admin-action-info p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #6b7280;
+}
+
+
+/* =========================================================
    LISTA DE LIVROS
-   ========================= */
+   ========================================================= */
 
 .books-list {
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
 }
 
 .book-item {
     border: 1px solid #e5e7eb;
+
     border-radius: 8px;
+
     padding: 18px;
 
-    transition: background-color 0.2s ease;
+    transition:
+        background-color 0.2s ease;
 }
 
 .book-item:hover {
@@ -441,18 +638,22 @@ textarea:focus {
 
 .book-info h3 {
     margin: 0 0 8px 0;
+
     font-size: 16px;
 }
 
 .book-info p {
     margin: 0;
+
     color: #6b7280;
+
     font-size: 14px;
 }
 
-/* =========================
+
+/* =========================================================
    DETALHES DO LIVRO
-   ========================= */
+   ========================================================= */
 
 .book-details {
     margin-bottom: 25px;
@@ -462,32 +663,72 @@ textarea:focus {
     margin: 0 0 12px 0;
 }
 
+.book-actions {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   STATUS DO LIVRO
+   ========================================================= */
+
 .book-status {
     display: inline-block;
+
     padding: 5px 10px;
+
     border-radius: 20px;
+
     font-size: 13px;
+
     font-weight: bold;
 }
 
 .book-status.available {
     background-color: #dcfce7;
+
     color: #166534;
 }
 
 .book-status.unavailable {
     background-color: #fee2e2;
+
     color: #991b1b;
 }
 
-.book-actions {
-    margin-top: 25px;
+
+/* =========================================================
+   RESPONSIVIDADE - DASHBOARD ADMIN
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
 }
 
-/* =========================
-   HISTÓRICO DO DASHBOARD
-   ========================= */
 
-.dashboard-history {
-    margin-top: 25px;
+@media (max-width: 700px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-action-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
 }

@@ -85,7 +85,7 @@
 
         <div class="book-actions">
 
-            <a href="{{ route('admin.dashboard') }}" class="btn-secondary-bora">
+            <a href="{{ route('admin.dashboard') }}" class="btn-bora">
                 Voltar para administração
             </a>
 

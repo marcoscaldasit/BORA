@@ -1,19 +1,132 @@
 @extends('layouts.app')
 
-@section('title', 'Administração')
+@section('title', 'Dashboard')
 
 @section('content')
 
     <div class="dashboard-header">
 
-        <h1>Administração</h1>
+        <h1>Dashboard</h1>
 
         <p>
-            Gerencie o acervo e os empréstimos do BORA.
+            Visão geral e gerenciamento do sistema BORA.
         </p>
 
     </div>
 
+
+    {{-- Indicadores --}}
+
+    <div class="admin-stats">
+
+        <div class="admin-stat-card">
+
+            <div class="admin-stat-icon">
+                📚
+            </div>
+
+            <div class="admin-stat-info">
+
+                <span class="admin-stat-value">
+                    {{ $totalBooks }}
+                </span>
+
+                <span class="admin-stat-label">
+                    Livros cadastrados
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-stat-card">
+
+            <div class="admin-stat-icon">
+                🗂️
+            </div>
+
+            <div class="admin-stat-info">
+
+                <span class="admin-stat-value">
+                    {{ $totalCategories }}
+                </span>
+
+                <span class="admin-stat-label">
+                    Categorias
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-stat-card">
+
+            <div class="admin-stat-icon">
+                👥
+            </div>
+
+            <div class="admin-stat-info">
+
+                <span class="admin-stat-value">
+                    {{ $totalUsers }}
+                </span>
+
+                <span class="admin-stat-label">
+                    Usuários
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-stat-card">
+
+            <div class="admin-stat-icon">
+                📖
+            </div>
+
+            <div class="admin-stat-info">
+
+                <span class="admin-stat-value">
+                    {{ $activeLoans }}
+                </span>
+
+                <span class="admin-stat-label">
+                    Empréstimos ativos
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-stat-card">
+
+            <div class="admin-stat-icon">
+                ✓
+            </div>
+
+            <div class="admin-stat-info">
+
+                <span class="admin-stat-value">
+                    {{ $availableBooks }}
+                </span>
+
+                <span class="admin-stat-label">
+                    Livros disponíveis
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {{-- Gerenciamento do acervo --}}
 
     <div class="dashboard-section">
 
@@ -23,14 +136,16 @@
 
         </div>
 
-        <div class="book-item">
 
-            <div class="book-info">
+        <div class="admin-action-card">
+
+            <div class="admin-action-info">
 
                 <h3>Livros</h3>
 
                 <p>
-                    Adicione, edite, exclua e consulte os livros cadastrados.
+                    Adicione, edite, exclua e consulte os livros
+                    cadastrados no acervo.
                 </p>
 
             </div>
@@ -45,10 +160,36 @@
 
         </div>
 
+
+        <div class="admin-action-card">
+
+            <div class="admin-action-info">
+
+                <h3>Categorias</h3>
+
+                <p>
+                    Gerencie as categorias utilizadas para organizar
+                    o acervo.
+                </p>
+
+            </div>
+
+            <div class="book-actions">
+
+                <a href="/categories" class="btn-bora">
+                    Gerenciar categorias
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
 
-    <div class="dashboard-section dashboard-history">
+    {{-- Empréstimos --}}
+
+    <div class="dashboard-section">
 
         <div class="section-header">
 
@@ -56,21 +197,23 @@
 
         </div>
 
-        <div class="book-item">
 
-            <div class="book-info">
+        <div class="admin-action-card">
 
-                <h3>Empréstimos ativos</h3>
+            <div class="admin-action-info">
+
+                <h3>Empréstimos e devoluções</h3>
 
                 <p>
-                    Consulte os empréstimos realizados e os livros atualmente emprestados.
+                    Consulte os livros atualmente emprestados,
+                    usuários responsáveis e o histórico de devoluções.
                 </p>
 
             </div>
 
             <div class="book-actions">
 
-                <a href="{{ route('admin.loans') }}" class="btn-secondary-bora">
+                <a href="{{ route('admin.loans') }}" class="btn-bora">
                     Ver empréstimos
                 </a>
 

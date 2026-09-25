@@ -67,13 +67,18 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         if ($request->session()->has('pending_loan_book_id')) {
-
             $bookId = $request->session()->pull('pending_loan_book_id');
 
             return redirect()->route('loans.confirm', $bookId);
         }
 
-        return redirect('/books');
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect()->route('home');
+
+        return redirect('/');
     }
 
     public function profile()

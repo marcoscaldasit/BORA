@@ -21,15 +21,25 @@
                 BORA
             </a>
 
-            <a href="/books">
-                Acervo
-            </a>
-
             @if (auth()->check())
 
-                <a href="/dashboard">
-                    Dashboard
+                <a href="/books">
+                    Acervo
                 </a>
+
+                @if (auth()->user()->role === 'admin')
+
+                    <a href="{{ route('admin.dashboard') }}">
+                        Dashboard
+                    </a>
+
+                @else
+
+                    <a href="/dashboard">
+                        Dashboard
+                    </a>
+
+                @endif
 
             @endif
 
@@ -51,34 +61,16 @@
                         <div class="profile-dropdown-user">
                             {{ auth()->user()->name }}
                         </div>
+
                         <div class="profile-dropdown-divider"></div>
+
                         <a href="{{ route('profile') }}">
                             Perfil
                         </a>
 
-                        <a href="/preferences">
-                            Preferências
-                        </a>
-
-                        <a href="{{route('settings')}}">
+                        <a href="{{ route('settings') }}">
                             Ajustes
                         </a>
-
-
-                        @if (auth()->user()->role === 'admin')
-
-                            <div class="profile-dropdown-divider"></div>
-
-                            <a href="/categories">
-                                Categorias
-                            </a>
-
-                            <a href="/admin">
-                                Administração
-                            </a>
-
-                        @endif
-
 
                         <div class="profile-dropdown-divider"></div>
 

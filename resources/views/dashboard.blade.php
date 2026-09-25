@@ -81,7 +81,7 @@
                             @method('PUT')
 
                             <button type="submit"
-                                    class="btn-secondary-bora">
+                                    class="btn-bora">
                                 Devolver livro
                             </button>
 

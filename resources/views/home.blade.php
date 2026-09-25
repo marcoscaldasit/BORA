@@ -1,166 +1,107 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+@extends('layouts.app')
 
-<head>
+@section('title', 'Home')
 
-    <meta charset="UTF-8">
+@section('content')
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="card-bora">
 
-    <title>BORA</title>
+        <h1>BORA</h1>
 
-    <link rel="stylesheet" href="{{ asset('css/bora.css') }}">
+        <p>
+            Book Organization & Rental Application
+        </p>
 
-</head>
-
-<body>
-
-    <nav class="navbar-bora">
-
-        <div class="navbar-left">
-
-            <a href="/">
-                BORA
-            </a>
+    </div>
 
 
+    <div class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>Acervo</h2>
 
         </div>
 
 
-        <div class="navbar-right">
+        @if ($books->isEmpty())
 
-            @if (auth()->check())
+            <div class="book-item">
 
-                <a href="/dashboard">
-                    Dashboard
-                </a>
+                <div class="book-info">
 
-                @if (auth()->user()->role === 'admin')
+                    <h3>Nenhum livro cadastrado.</h3>
 
-                    <a href="/categories">
-                        Categorias
-                    </a>
+                    <p>
+                        O acervo ainda não possui livros disponíveis.
+                    </p>
 
-                @endif
-
-            @else
-
-                <a href="/login">
-                    Entrar
-                </a>
-
-                <a href="/register">
-                    Criar conta
-                </a>
-
-            @endif
-
-        </div>
-
-    </nav>
-
-
-    <main class="container-bora">
-
-        <div class="card-bora">
-
-            <h1>BORA</h1>
-
-            <p>
-                Book Organization & Rental Application
-            </p>
-
-        </div>
-
-
-        <div class="dashboard-section">
-
-            <div class="section-header">
-
-                <h2>Acervo</h2>
+                </div>
 
             </div>
 
+        @else
 
-            @if ($books->isEmpty())
+            <div class="books-list">
 
-                <div class="book-item">
+                @foreach ($books as $book)
 
-                    <div class="book-info">
+                    <div class="book-item">
 
-                        <h3>Nenhum livro cadastrado.</h3>
+                        <div class="book-info">
 
-                        <p>
-                            O acervo ainda não possui livros disponíveis.
-                        </p>
+                            <h3>
+                                {{ $book->title }}
+                            </h3>
 
-                    </div>
+                            <p>
+                                Autor: {{ $book->author }}
+                            </p>
 
-                </div>
+                            <p>
+                                Categoria: {{ $book->category->name }}
+                            </p>
 
-            @else
+                            <p>
+                                <strong>Status:</strong>
 
-                <div class="books-list">
+                                @if ($book->loans->isEmpty())
 
-                    @foreach ($books as $book)
+                                    <span class="book-status available">
+                                        Disponível
+                                    </span>
 
-                        <div class="book-item">
+                                @else
 
-                            <div class="book-info">
+                                    <span class="book-status unavailable">
+                                        Indisponível
+                                    </span>
 
-                                <h3>
-                                    {{ $book->title }}
-                                </h3>
+                                @endif
 
-                                <p>
-                                    Autor: {{ $book->author }}
-                                </p>
-
-                                <p>
-                                    Categoria: {{ $book->category->name }}
-                                </p>
-                                <p>
-                                    <strong>Status:</strong>
-
-                                    @if ($book->loans->isEmpty())
-
-                                        <span class="book-status available">
-                                            Disponível
-                                        </span>
-
-                                    @else
-
-                                        <span class="book-status unavailable">
-                                            Indisponível
-                                        </span>
-
-                                    @endif
-                                </p>
-                            </div>
-
-                            <div class="book-actions">
-
-                                <a href="/books/{{ $book->id }}" class="btn-secondary-bora">
-
-                                    Ver livro
-
-                                </a>
-
-                            </div>
+                            </p>
 
                         </div>
 
-                    @endforeach
+                        <div class="book-actions">
 
-                </div>
+                            <a
+                                href="/books/{{ $book->id }}"
+                                class="btn-bora"
+                            >
+                                Ver livro
+                            </a>
 
-            @endif
+                        </div>
 
-        </div>
+                    </div>
 
-    </main>
+                @endforeach
 
-</body>
+            </div>
 
-</html>
+        @endif
+
+    </div>
+
+@endsection

@@ -60,12 +60,12 @@
                             </td>
 
                             <td>
-                                <a href="/books/{{ $book->id }}" class="btn-secondary-bora">
+                                <a href="/books/{{ $book->id }}" class="btn-bora">
                                     Ver
                                 </a>
 
                                 @if (auth()->check() && auth()->user()->role === 'admin')
-                                    <a href="/books/{{ $book->id }}/edit" class="btn-secondary-bora">
+                                    <a href="/books/{{ $book->id }}/edit" class="btn-bora">
                                         Editar
                                     </a>
                                 @endif

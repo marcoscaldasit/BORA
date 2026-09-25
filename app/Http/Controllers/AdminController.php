@@ -3,12 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Loan;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $totalBooks = Book::count();
+        $totalCategories = Category::count();
+        $totalUsers = User::where('role', 'user')->count();
+        $activeLoans = Loan::whereNull('return_at')->count();
+
+        $availableBooks = Book::whereDoesntHave('loans', function ($query) {
+            $query->whereNull('return_at');
+        })->count();
+
+        return view('admin.dashboard', compact(
+            'totalBooks',
+            'totalCategories',
+            'totalUsers',
+            'activeLoans',
+            'availableBooks'
+        ));
     }
 
     public function loans()

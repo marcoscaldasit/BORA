@@ -72,6 +72,18 @@ body {
     justify-content: center;
 }
 
+.profile-dropdown-user {
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.profile-dropdown-divider {
+    height: 1px;
+    background-color: #e5e5e5;
+    margin: 4px 0;
+}
+
 .profile-button:hover {
     background-color: rgba(255, 255, 255, 0.12);
 }

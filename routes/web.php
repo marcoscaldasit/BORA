@@ -84,6 +84,18 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
+    Route::get('/profile', [AuthController::class, 'profile'])
+        ->name('profile');
+
+    Route::put('/profile', [AuthController::class, 'updateProfile'])
+        ->name('profile.update');
+
+    Route::get('/settings', [AuthController::class, 'settings'])
+        ->name('settings');
+    
+    Route::put('/settings/password', [AuthController::class, 'updatePassword'])
+        ->name('settings.password.update');
+
 });
 
 
@@ -132,6 +144,8 @@ Route::middleware('admin')->group(function () {
 
     Route::delete('/books/{book}', [BookController::class, 'destroy']);
 
+    Route::get('/admin/loans', [AdminController::class, 'loans'])
+        ->name('admin.loans');
 
     Route::get('/admin', [AdminController::class, 'index'])
         ->name('admin.dashboard');

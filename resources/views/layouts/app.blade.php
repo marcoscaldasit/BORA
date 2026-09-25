@@ -31,17 +31,6 @@
                     Dashboard
                 </a>
 
-                @if (auth()->user()->role === 'admin')
-
-                    <a href="/categories">
-                        Categorias
-                    </a>
-                    <a href="/admin">
-                        Administração
-                    </a>
-
-                @endif
-
             @endif
 
         </div>
@@ -59,7 +48,11 @@
 
                     <div class="profile-dropdown">
 
-                        <a href="/profile">
+                        <div class="profile-dropdown-user">
+                            {{ auth()->user()->name }}
+                        </div>
+                        <div class="profile-dropdown-divider"></div>
+                        <a href="{{ route('profile') }}">
                             Perfil
                         </a>
 
@@ -67,9 +60,27 @@
                             Preferências
                         </a>
 
-                        <a href="/settings">
+                        <a href="{{route('settings')}}">
                             Ajustes
                         </a>
+
+
+                        @if (auth()->user()->role === 'admin')
+
+                            <div class="profile-dropdown-divider"></div>
+
+                            <a href="/categories">
+                                Categorias
+                            </a>
+
+                            <a href="/admin">
+                                Administração
+                            </a>
+
+                        @endif
+
+
+                        <div class="profile-dropdown-divider"></div>
 
                         <form method="POST" action="/logout">
 
@@ -100,6 +111,7 @@
         </div>
 
     </nav>
+
 
     <main class="container-bora">
         @yield('content')

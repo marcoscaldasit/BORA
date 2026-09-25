@@ -76,6 +76,56 @@ class AuthController extends Controller
         return redirect('/books');
     }
 
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('auth.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+        ]);
+
+        $user = auth()->user();
+        $user->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->route('profile')
+            ->with('success', 'Nome de perfil atualizado com sucesso.');
+    }
+
+    public function settings()
+    {
+        return view('auth.settings');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = auth()->user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors([
+                'current_password' => 'A senha atual está incorreta.',
+            ]);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()
+            ->route('settings')
+            ->with('success', 'Senha atualizada com sucesso.');
+    }
 
     public function logout(Request $request)
     {

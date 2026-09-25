@@ -70,7 +70,7 @@
 
             <div class="book-actions">
 
-                <a href="#" class="btn-secondary-bora">
+                <a href="{{ route('admin.loans') }}" class="btn-secondary-bora">
                     Ver empréstimos
                 </a>
 

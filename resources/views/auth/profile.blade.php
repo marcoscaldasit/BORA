@@ -79,9 +79,7 @@
                     disabled
                 >
 
-                <p class="form-help">
-                    O e-mail não pode ser alterado por esta tela.
-                </p>
+                
 
             </div>
 
